@@ -374,9 +374,12 @@ Furthermore, certain edits can cause the TripLog to behave in unexpected ways (e
 | Action     | Format, Examples                                                                                                                                                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Add** | `add n/NAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [sd/START_DATE] [ed/END_DATE] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 sd/2026-01-01 t/friend`                       |
+| **Tag** | `tag INDEX TAG` <br> e.g., `tag 1 hotel`                                                                                                                                 |
+| **Filter** | `filter sd/START_DATE ed/END_DATE` <br> e.g., `filter sd/2026-01-01 ed/2026-03-01`                                                                                       |
 | **Clear** | `clear`                                                                                                                                                                  |
 | **Delete** | `delete INDEX`<br>`delete START-END`<br>`delete PREFIX/VALUE`<br>`delete sd/START_DATE ed/END_DATE`<br> e.g., `delete 3`, `delete 1-3`, `delete t/family`, `delete sd/2026-03-01 ed/2026-05-10` |
 | **Edit** | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [sd/START_DATE] [ed/END_DATE] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                       |
 | **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find Tokyo Osaka`                                                                                                              |
 | **List** | `list [sort/KEY]` <br> e.g., `list sort/name`                                                                                                                            |
 | **Help** | `help [COMMAND]`<br> e.g., `help add`                                                                                                                                    |
+| **Exit** | `exit`                                                                                                                                                                   |
