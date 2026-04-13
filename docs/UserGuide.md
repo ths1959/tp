@@ -199,6 +199,7 @@ Examples:
 Finds trips whose names contain any of the given keywords as substrings.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
+(A keyword is a space-separated term used to search the trip name.)
 
 - The search is case-insensitive. e.g. `tok` will match `Tokyo`
 - The order of the keywords does not matter. e.g. `Japan Tokyo` will match `Tokyo Japan`
@@ -324,8 +325,6 @@ Examples:
 
 ![Filter Preview](images/bef_filter.png)
 
-Before deleting, TripLog will display a preview of the trips that match the command.
-
 #### After filtering date range 2025-06-08 to 2025-06-10
 
 ![Filter Result](images/aft_filter.png)
@@ -377,10 +376,10 @@ Furthermore, certain edits can cause the TripLog to behave in unexpected ways (e
 
 | Action     | Format, Examples                                                                                                                                                         |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Add** | `add n/NAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [sd/START_DATE] [ed/END_DATE] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 sd/2026-01-01 t/friend`                       |
+| **Add** | `add n/NAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [sd/START_DATE] [ed/END_DATE] [t/TAG]…​` <br> e.g., `add n/Tokyo p/91234567 sd/2026-01-01 t/vacation`                       |
 | **Clear** | `clear`                                                                                                                                                                  |
 | **Delete** | `delete INDEX`<br>`delete START-END`<br>`delete PREFIX/VALUE`<br>`delete sd/START_DATE ed/END_DATE`<br> e.g., `delete 3`, `delete 1-3`, `delete t/family`, `delete sd/2026-03-01 ed/2026-05-10` |
-| **Edit** | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [sd/START_DATE] [ed/END_DATE] [t/TAG]…​`<br> At least one field must be provided.<br> e.g., `edit 2 n/James Lee e/jameslee@example.com` |
+| **Edit** | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [sd/START_DATE] [ed/END_DATE] [t/TAG]…​`<br> At least one field must be provided.<br> e.g., `edit 2 n/Osaka e/hotel@example.com` |
 | **Exit** | `exit`                                                                                                                                                                   |
 | **Filter** | `filter sd/START_DATE ed/END_DATE`<br> `START_DATE` must not be after `END_DATE`.<br> e.g., `filter sd/2026-05-01 ed/2026-07-31`                                         |
 | **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find Tokyo Osaka`                                                                                                              |

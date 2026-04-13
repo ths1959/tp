@@ -502,7 +502,6 @@ Priorities: Essential (must have) MVP, High (expected to have) - `* * *`, Medium
 - **Mainstream OS**: Windows, Linux, Unix, MacOS
 - **Trip**: A travel record identified by a destination name, with optional fields such as start date, end date, address, and tags.
 - **Destination**: Primary location of a trip (e.g "Mount Fuji"), mapped to the Name field
-- **Experience Log**: Descriptive note added to a trip to record activities or reminders
 - **Category Tag**: Label for grouping trips by purpose (e.g work) or region (e.g Japan)
 - **Duration**: The total days between the start and end date of a trip.
 
@@ -527,14 +526,14 @@ While TripLog originated from AB3, the transition to a travel-specific manager r
 1. **Improve Error Message for Invalid Indices**: Currently, when an index is out of bounds or not a positive integer, the app shows a generic error. We plan to specify the valid range based on the current list size (e.g., "Index must be between 1 and 5").
 2. **Support for Non-English Characters**: We plan to allow Unicode characters in the destination `NAME` field to support international travel records (e.g., Tokyo / 東京).
 3. **Multi-Field Substring Search**: The `find` command currently only searches the Name field. We plan to expand substring matching to include Address and Tags fields simultaneously.
-4. **Refine Phone and Email Validation**: Currently, the validation for phone numbers and emails follows a strict alphanumeric format. We plan to allow more flexible symbols (e.g., "+" for country codes in phone numbers) to support international contact details.
+4. **Refine Phone and Email Validation**: Currently, phone validation is strictly numeric and email validation is restricted to a standard format (e.g., requires `@` and `.` with specific special characters `+`, `_`, `.`, `-` allowed). We plan to allow international symbols in phone numbers (e.g., `+` for country codes) and expand email character support to align with broader RFC 5322 standards.
 5. **Clearer Duplicate Detection Feedback**: When a duplicate trip is rejected, we plan to specify which existing entry it overlaps with (e.g., "Overlaps with trip at index 2") in the feedback box.
 6. **Custom Icons Toggle**: Provide a setting in `preferences.json` to allow users to toggle off the custom `[OK]` and `[!!]` icons for a minimalist UI.
 7. **Preserve original displayed indices in delete preview**: Currently, the delete preview renumbers matched trips starting from 1 instead of preserving their original indices in the currently displayed trip list. For example, entering `delete 2-3` may preview the selected trips as `1.` and `2.`, even though they correspond to displayed list entries `2.` and `3.`. We plan to update the preview UI so that it preserves the original displayed indices, allowing users to verify more easily that the correct trips have been selected before confirming deletion.
 8. **Make oversized delete index error messages more specific**: Currently, when an excessively large numeric index is provided in the `delete` command (e.g. `delete 12345678901211111111`), TripLog may return a misleading error message stating that the index must be a positive integer, even though the input is numerically positive. We plan to refine the validation logic so that oversized numeric inputs that exceed supported bounds produce a clearer message indicating that the index is invalid or out of range, helping users better understand the actual cause of the error.
 9. **Support for descending sort order**: Currently, the `list sort/KEY` command only supports ascending order for dates and names. We plan to introduce a suffix (e.g., `list sort/name-d`) to allow users to toggle between ascending and descending order, providing more flexibility in how they view their travel history.
 10. **Pagination for large trip logs**: Currently, the `list` command displays all entries in a single view. As the trip log grows, this may cause performance lag or UI clutter. We plan to implement pagination (e.g., `list p/1`) to limit the number of trips displayed per page, ensuring the application remains responsive and the UI stays manageable.
-
+11. **Preserve selected trip after list modifications**: Currently, when the trip list is modified (e.g., via edit, sort, or filter operations), the UI may retain selection based on index rather than the originally selected trip. This can result in a different trip being highlighted after the update. We plan to change selection handling to track trips by identity instead of list position, ensuring the originally selected trip remains highlighted across list changes.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
