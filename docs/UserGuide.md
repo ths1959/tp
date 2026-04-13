@@ -184,9 +184,10 @@ Tags an existing trip in the TripLog with the given keyword.
 Format: `tag INDEX TAG`
 
 * Tags the trip with the keyword `TAG` at the specified `INDEX`. The index refers to the index number shown in the displayed trip list. The index **must be a positive integer** 1, 2, 3, …​
-* Tags must be alphanumeric (A-Z, 0-9).
+* Tags must be alphanumeric (A-Z, 0-9) and may contain spaces.
 * Duplicate tags will not be added.
 * Duplicate tags are case-insensitive. e.g. `Hotel` and `HOTEL` are considered duplicates.
+* If the loaded .json file contains duplicate tags, data is considered corrupted and the save will not be loaded.
 
 Examples:
 * `tag 1 scenic beauty` Tags the 1st trip with `scenic beauty`.
@@ -360,8 +361,8 @@ Furthermore, certain edits can cause the TripLog to behave in unexpected ways (e
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TripLog home folder.
+**Q**: How do I transfer my data to another computer?<br>
+**A**: Install the app on the other computer. Then, locate the `triplog.json` file in the `data` folder of your original TripLog directory and use it to overwrite the default `triplog.json` file created on the new computer.
 
 ---
 
